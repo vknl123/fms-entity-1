@@ -1,15 +1,17 @@
 package com.mpcz.fmsentity.bean;
 
+import com.mpcz.fmsinterface.RegionInterface;
+
 import javax.persistence.*;
 
 
 @Entity(name = "Region")
 @Table(name = "region")
-public class Region {
+public class Region implements RegionInterface {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name ="id")
+    @Column(name = "id")
     private long id;
 
     @Column(name = "name")

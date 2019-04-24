@@ -1,33 +1,35 @@
 package com.mpcz.fmsentity.bean;
 
 
+import com.mpcz.fmsinterface.ZoneInterface;
+
 import javax.persistence.*;
 
 @Entity(name = "Zone")
 @Table(name = "zone")
-public class Zone {
+public class Zone implements ZoneInterface {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name ="id")
+    @Column(name = "id")
     private long id;
 
-    @Column(name ="code")
+    @Column(name = "code")
     private String code;
 
-    @Column(name ="name")
+    @Column(name = "name")
     private String name;
 
-    @Column(name ="division_id")
+    @Column(name = "division_id")
     private long divisionId;
 
-    @Column(name ="short_code")
+    @Column(name = "short_code")
     private String shortCode;
 
-    @Column(name ="address")
+    @Column(name = "address")
     private String address;
 
-    @Column(name ="phone_no")
+    @Column(name = "phone_no")
     private String phoneNo;
 
     public long getId() {

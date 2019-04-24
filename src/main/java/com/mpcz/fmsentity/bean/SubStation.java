@@ -1,6 +1,7 @@
 package com.mpcz.fmsentity.bean;
 
 import javax.persistence.*;
+import java.sql.Date;
 import java.sql.Timestamp;
 
 @Entity(name = "SubStation")
@@ -31,13 +32,15 @@ public class SubStation {
     private String createdBy;
 
     @Column(name ="created_on")
-    private Timestamp createdOn;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createdOn;
 
     @Column(name ="updated_by")
     private String updatedBy;
 
     @Column(name ="updated_on")
-    private Timestamp updatedOn;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date updatedOn;
 
     public long getId() {
         return id;
@@ -95,11 +98,11 @@ public class SubStation {
         this.createdBy = createdBy;
     }
 
-    public Timestamp getCreatedOn() {
+    public Date getCreatedOn() {
         return createdOn;
     }
 
-    public void setCreatedOn(Timestamp createdOn) {
+    public void setCreatedOn(Date createdOn) {
         this.createdOn = createdOn;
     }
 
@@ -111,11 +114,11 @@ public class SubStation {
         this.updatedBy = updatedBy;
     }
 
-    public Timestamp getUpdatedOn() {
+    public Date getUpdatedOn() {
         return updatedOn;
     }
 
-    public void setUpdatedOn(Timestamp updatedOn) {
+    public void setUpdatedOn(Date updatedOn) {
         this.updatedOn = updatedOn;
     }
 

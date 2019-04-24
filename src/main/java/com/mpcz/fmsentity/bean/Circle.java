@@ -1,10 +1,12 @@
 package com.mpcz.fmsentity.bean;
 
+import com.mpcz.fmsinterface.CircleInterface;
+
 import javax.persistence.*;
 
 @Entity(name = "Circle")
 @Table(name = "circle")
-public class Circle {
+public class Circle implements CircleInterface {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

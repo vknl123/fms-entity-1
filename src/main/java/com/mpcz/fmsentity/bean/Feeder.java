@@ -1,41 +1,42 @@
 package com.mpcz.fmsentity.bean;
 
 
+import com.mpcz.fmsinterface.FeederInterface;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Entity(name = "Feeder")
 @Table(name = "feeder")
-public class Feeder {
+public class Feeder implements FeederInterface {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name ="id")
+    @Column(name = "id")
     private long id;
 
-
-    @Column(name ="substation_id")
+    @Column(name = "substation_id")
     private long substationId;
 
-    @Column(name ="feeder_name")
+    @Column(name = "feeder_name")
     private String feederName;
 
-    @Column(name ="feeder_type")
+    @Column(name = "feeder_type")
     private String feederType;
 
-    @Column(name ="status")
+    @Column(name = "status")
     private String status;
 
-    @Column(name ="created_by")
+    @Column(name = "created_by")
     private String createdBy;
 
-    @Column(name ="created_on")
+    @Column(name = "created_on")
     private Timestamp createdOn;
 
-    @Column(name ="updated_by")
+    @Column(name = "updated_by")
     private String updatedBy;
 
-    @Column(name ="updated_on")
+    @Column(name = "updated_on")
     private Timestamp updatedOn;
 
     public long getId() {

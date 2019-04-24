@@ -1,74 +1,64 @@
 package com.mpcz.fmsentity.bean;
 
+import com.mpcz.fmsinterface.DivisionInterface;
+
 import javax.persistence.*;
 
 @Entity(name = "Division")
 @Table(name = "division")
-public class Division {
+public class Division implements DivisionInterface {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name ="id")
+    @Column(name = "id")
     private long id;
 
-    @Column(name ="code")
+    @Column(name = "code")
     private String code;
 
-    @Column(name ="name")
+    @Column(name = "name")
     private String name;
 
-    @Column(name ="regionId")
-    private long regionId;
+    @Column(name = "circle_id")
+    private long circleId;
 
-    public Division() {
-    }
-
-    public Division(long id, String code, String name, long regionId) {
-        this.id = id;
-        this.code = code;
-        this.name = name;
-        this.regionId = regionId;
-    }
-
+    @Override
     public long getId() {
         return id;
     }
 
+    @Override
     public void setId(long id) {
         this.id = id;
     }
 
+    @Override
     public String getCode() {
         return code;
     }
 
+    @Override
     public void setCode(String code) {
         this.code = code;
     }
 
+    @Override
     public String getName() {
         return name;
     }
 
+    @Override
     public void setName(String name) {
         this.name = name;
     }
 
-    public long getRegionId() {
-        return regionId;
-    }
-
-    public void setRegionId(long regionId) {
-        this.regionId = regionId;
+    @Override
+    public long getCircleId() {
+        return circleId;
     }
 
     @Override
-    public String toString() {
-        return "Division{" +
-                "id=" + id +
-                ", code='" + code + '\'' +
-                ", name='" + name + '\'' +
-                ", regionId=" + regionId +
-                '}';
+    public void setCircleId(long circleId) {
+        this.circleId = circleId;
     }
 }

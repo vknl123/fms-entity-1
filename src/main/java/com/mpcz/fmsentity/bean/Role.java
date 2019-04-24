@@ -1,30 +1,23 @@
 package com.mpcz.fmsentity.bean;
 
+import com.mpcz.fmsinterface.RoleInterface;
+
 import javax.persistence.*;
 
 @Entity(name = "Role")
 @Table(name = "role")
-public class Role {
+public class Role implements RoleInterface {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name ="id")
+    @Column(name = "id")
     private long id;
 
-    @Column(name ="role")
+    @Column(name = "role")
     private String role;
 
-    @Column(name ="priortiy")
+    @Column(name = "priortiy")
     private String priortiy;
-
-    public Role() {
-    }
-
-    public Role(long id, String role, String priortiy) {
-        this.id = id;
-        this.role = role;
-        this.priortiy = priortiy;
-    }
 
     public long getId() {
         return id;
