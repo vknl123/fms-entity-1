@@ -1,8 +1,19 @@
 package com.mpcz.fmsentity.bean;
 
-import com.mpcz.fmsinterface.CircleInterface;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
-import javax.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.mpcz.fmsinterface.CircleInterface;
+import com.mpcz.fmsinterface.RegionInterface;
 
 @Entity(name = "Circle")
 @Table(name = "circle")
@@ -19,17 +30,12 @@ public class Circle implements CircleInterface {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "region_id")
-    private long regionId;
-
+    @JsonIgnore
+    @ManyToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+    @JoinColumn(name="region_id")
+    private Region region;
+    
     public Circle() {
-    }
-
-    public Circle(long id, String code, String name, long regionId) {
-        this.id = id;
-        this.code = code;
-        this.name = name;
-        this.regionId = regionId;
     }
 
     public long getId() {
@@ -56,21 +62,23 @@ public class Circle implements CircleInterface {
         this.name = name;
     }
 
-    public long getRegionId() {
-        return regionId;
-    }
+   
 
-    public void setRegionId(long regionId) {
-        this.regionId = regionId;
-    }
+    public Region getRegion() {
+		return region;
+	}
 
-    @Override
+	public void setRegion(RegionInterface region) {
+		this.region =(Region) region;
+	}
+
+	@Override
     public String toString() {
         return "Circle{" +
                 "id=" + id +
                 ", code='" + code + '\'' +
                 ", name='" + name + '\'' +
-                ", regionId=" + regionId +
+                ", regionId=" + region +
                 '}';
     }
 }

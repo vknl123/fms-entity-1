@@ -1,11 +1,14 @@
 package com.mpcz.fmsentity.bean;
 
 import javax.persistence.*;
+
+import com.mpcz.fmsinterface.SubstationAttributeInfoInterface;
+
 import java.util.Date;
 
 @Entity(name = "SubstationAttributeInfo")
 @Table(name = "substation_attribute_info")
-public class SubstationAttributeInfo  {
+public class SubstationAttributeInfo implements SubstationAttributeInfoInterface {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

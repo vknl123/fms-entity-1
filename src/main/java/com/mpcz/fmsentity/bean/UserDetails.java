@@ -1,12 +1,15 @@
 package com.mpcz.fmsentity.bean;
 
 import javax.persistence.*;
+
+import com.mpcz.fmsinterface.UserDetailsInterface;
+
 import java.sql.Timestamp;
 import java.util.Date;
 
 @Entity(name = "UserDetails")
 @Table(name = "user_details")
-public class UserDetails {
+public class UserDetails implements UserDetailsInterface{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

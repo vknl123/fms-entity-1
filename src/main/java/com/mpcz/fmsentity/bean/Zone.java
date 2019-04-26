@@ -1,6 +1,8 @@
 package com.mpcz.fmsentity.bean;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.mpcz.fmsinterface.DivisionInterface;
 import com.mpcz.fmsinterface.ZoneInterface;
 
 import javax.persistence.*;
@@ -20,8 +22,10 @@ public class Zone implements ZoneInterface {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "division_id")
-    private long divisionId;
+    @JsonIgnore
+    @ManyToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+    @JoinColumn(name="division_id")
+    private Division division;
 
     @Column(name = "short_code")
     private String shortCode;
@@ -56,15 +60,17 @@ public class Zone implements ZoneInterface {
         this.name = name;
     }
 
-    public long getDivisionId() {
-        return divisionId;
-    }
+   
 
-    public void setDivisionId(long divisionId) {
-        this.divisionId = divisionId;
-    }
+    public DivisionInterface getDivision() {
+		return division;
+	}
 
-    public String getShortCode() {
+	public void setDivision(DivisionInterface division) {
+		this.division =(Division) division;
+	}
+
+	public String getShortCode() {
         return shortCode;
     }
 
@@ -94,7 +100,7 @@ public class Zone implements ZoneInterface {
                 "id=" + id +
                 ", code='" + code + '\'' +
                 ", name='" + name + '\'' +
-                ", divisionId=" + divisionId +
+                ", divisionId=" + division +
                 ", shortCode='" + shortCode + '\'' +
                 ", address='" + address + '\'' +
                 ", phoneNo='" + phoneNo + '\'' +

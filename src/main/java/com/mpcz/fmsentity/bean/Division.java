@@ -1,5 +1,7 @@
 package com.mpcz.fmsentity.bean;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.mpcz.fmsinterface.CircleInterface;
 import com.mpcz.fmsinterface.DivisionInterface;
 
 import javax.persistence.*;
@@ -19,9 +21,14 @@ public class Division implements DivisionInterface {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "circle_id")
-    private long circleId;
+    
 
+    @JsonIgnore
+    @ManyToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+    @JoinColumn(name="circle_id")
+    private Circle circle;
+
+    
     @Override
     public long getId() {
         return id;
@@ -52,13 +59,13 @@ public class Division implements DivisionInterface {
         this.name = name;
     }
 
-    @Override
-    public long getCircleId() {
-        return circleId;
-    }
+	public Circle getCircle() {
+		return circle;
+	}
 
-    @Override
-    public void setCircleId(long circleId) {
-        this.circleId = circleId;
-    }
+	public void setCircle(CircleInterface circle) {
+		this.circle = (Circle)circle;
+	}
+
+    
 }
