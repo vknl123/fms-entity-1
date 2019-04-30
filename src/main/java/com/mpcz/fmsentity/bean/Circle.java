@@ -19,66 +19,60 @@ import com.mpcz.fmsinterface.RegionInterface;
 @Table(name = "circle")
 public class Circle implements CircleInterface {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name ="id")
-    private long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
+	private long id;
 
-    @Column(name = "code")
-    private String code;
+	@Column(name = "code")
+	private String code;
 
-    @Column(name = "name")
-    private String name;
+	@Column(name = "name")
+	private String name;
 
-    @JsonIgnore
-    @ManyToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
-    @JoinColumn(name="region_id")
-    private Region region;
-    
-    public Circle() {
-    }
+	@JsonIgnore
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinColumn(name = "region_id")
+	private Region region;
 
-    public long getId() {
-        return id;
-    }
+	public Circle() {
+	}
 
-    public void setId(long id) {
-        this.id = id;
-    }
+	public long getId() {
+		return id;
+	}
 
-    public String getCode() {
-        return code;
-    }
+	public void setId(long id) {
+		this.id = id;
+	}
 
-    public void setCode(String code) {
-        this.code = code;
-    }
+	public String getCode() {
+		return code;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public void setCode(String code) {
+		this.code = code;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public String getName() {
+		return name;
+	}
 
-   
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public Region getRegion() {
+	public Region getRegion() {
 		return region;
 	}
 
 	public void setRegion(RegionInterface region) {
-		this.region =(Region) region;
+		this.region = (Region) region;
 	}
 
 	@Override
-    public String toString() {
-        return "Circle{" +
-                "id=" + id +
-                ", code='" + code + '\'' +
-                ", name='" + name + '\'' +
-                ", regionId=" + region +
-                '}';
-    }
+	public String toString() {
+		return "Circle{" + "id=" + id + ", code='" + code + '\'' + ", name='" + name + '\'' + ", regionId=" + region
+				+ '}';
+	}
 }
