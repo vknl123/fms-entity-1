@@ -12,7 +12,7 @@ public class Feeder implements FeederInterface {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "fdr_id")
     private long id;
 
     @Column(name = "substation_id")

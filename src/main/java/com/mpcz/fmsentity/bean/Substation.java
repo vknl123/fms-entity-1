@@ -47,6 +47,10 @@ public class Substation implements SubstationInterface{
     @Column(name ="updated_by")
     private String updatedBy;
 
+    @Column(name ="status")
+    private String status;
+
+    
     @Column(name ="updated_on")
     @Temporal(TemporalType.TIMESTAMP)
     private Date updatedOn;
@@ -130,8 +134,18 @@ public class Substation implements SubstationInterface{
     public void setUpdatedOn(Date updatedOn) {
         this.updatedOn = updatedOn;
     }
+    
+    
 
-    @Override
+    public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	@Override
     public String toString() {
         return "SubStation{" +
                 "id=" + id +
